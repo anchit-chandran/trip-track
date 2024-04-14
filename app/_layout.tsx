@@ -50,7 +50,7 @@ function RootLayoutNav() {
           options={{
             title: "Trip Track",
             headerStyle: [styles.header],
-            headerTitleStyle: [styles.header]
+            headerTitleStyle: [styles.header],
           }}
         />
       </Stack>
