@@ -36,7 +36,7 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
-  return <LinearGradient colors={['#ddd']}><RootLayoutNav /></LinearGradient>;
+  return <RootLayoutNav />;
 
 }
 
@@ -44,7 +44,15 @@ function RootLayoutNav() {
 
   return (
     <PaperProvider>
-      <Stack>
+      <Stack >
+        <Stack.Screen 
+          name="index"
+          options={{
+            title: "Trip Track",
+            headerStyle: [styles.header],
+            headerTitleStyle: [styles.header]
+          }}
+        />
       </Stack>
     </PaperProvider>
   );
@@ -52,4 +60,8 @@ function RootLayoutNav() {
 
 
 const styles = StyleSheet.create({
+  header: {
+    backgroundColor: 'black',
+    color: 'white',
+  }
 })
