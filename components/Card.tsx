@@ -5,9 +5,16 @@ import React from 'react'
 interface cardProps {
     heading?: string
     startTime?: string
+    substance?: string
+    imgPath?: string | null
 }
 
-export function Card({ heading = 'TITLE', startTime = '30d' }: cardProps) {
+const stockTrippyImgUrl = 'https://neural.love/cdn/ai-photostock/1ed6edfe-282e-6946-a534-67422454bb22/0.jpg?Expires=1717199999&Signature=j-vfzCvztO26Vwhg69j3-uaQu5Ltr9TcTIugXM~iTetFF8B5bjopb0Z7nh7KKlHAhkPgbTsGoSGktNIULRSldStkkhAItoA2ETSgE1brqKMrvdUBGAvCzjknscsd8ZttiIPY8EMHJg1lcpmJE5moR7D7Ylt-97ymDN5azTQRFRCM7DiwpxC8nUzdZzgH3U1mh-joNXZRxHSPySlda-bH~QzIqdebmGkW-7L-hor2eQVNOosoBcfCjb4Eni-D12Ja6-ytRF1qH8joRRA3yCmlFA~C3~qNE37ZY07DuqNTFfvOkPnjjxtsd-DJoHol89E9tOwTqePRG2kb78Lr15Y3QA__&Key-Pair-Id=K2RFTOXRBNSROX'
+
+export function Card({ heading = 'TITLE', startTime = '30d', substance = '✨', imgPath = stockTrippyImgUrl, }: cardProps) {
+
+    const actualImgPath = imgPath ? imgPath : stockTrippyImgUrl
+
     return (
         <LinearGradient
             style={[styles.gradient]}
@@ -23,12 +30,12 @@ export function Card({ heading = 'TITLE', startTime = '30d' }: cardProps) {
                     >{startTime}</Text>
 
                 </View>
-                <Text>💊</Text>
+                <Text>{substance}</Text>
             </View>
             <Image
                 style={{ height: 300 }}
                 source={{
-                    uri: 'https://neural.love/cdn/ai-photostock/1ed6edfe-282e-6946-a534-67422454bb22/0.jpg?Expires=1717199999&Signature=j-vfzCvztO26Vwhg69j3-uaQu5Ltr9TcTIugXM~iTetFF8B5bjopb0Z7nh7KKlHAhkPgbTsGoSGktNIULRSldStkkhAItoA2ETSgE1brqKMrvdUBGAvCzjknscsd8ZttiIPY8EMHJg1lcpmJE5moR7D7Ylt-97ymDN5azTQRFRCM7DiwpxC8nUzdZzgH3U1mh-joNXZRxHSPySlda-bH~QzIqdebmGkW-7L-hor2eQVNOosoBcfCjb4Eni-D12Ja6-ytRF1qH8joRRA3yCmlFA~C3~qNE37ZY07DuqNTFfvOkPnjjxtsd-DJoHol89E9tOwTqePRG2kb78Lr15Y3QA__&Key-Pair-Id=K2RFTOXRBNSROX',
+                    uri: actualImgPath,
                 }}
             />
             <View style={{ backgroundColor: '#11031A', flex: 1, justifyContent: 'center', alignItems: 'center' }}>

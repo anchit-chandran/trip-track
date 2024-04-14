@@ -10,6 +10,7 @@ const data = [
     city: 'London',
     substance: '💊',
     startTime: '30d',
+    imgPath: null
   },
   {
     id: '2',
@@ -17,6 +18,7 @@ const data = [
     city: 'London',
     substance: '🍄',
     startTime: '1y',
+    imgPath: null
   },
 ]
 
@@ -36,7 +38,15 @@ export default function Index() {
       >
         <FlatList
           data={data}
-          renderItem={({ item }) => <Card heading={`${item.location},${item.city}`} />}
+          renderItem={({ item }) =>
+
+            <Card
+              heading={`${item.location},${item.city}`}
+              startTime={item.startTime}
+              substance={item.substance}
+              imgPath={item.imgPath}
+            />
+          }
           keyExtractor={item => item.id}
         />
         <Card />
